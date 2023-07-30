@@ -13,7 +13,7 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     @IBOutlet weak var playButton: UIButton!
     @IBOutlet weak var stopButton: UIButton!
     @IBOutlet weak var pauseButton: UIButton!
-
+    
     private var timer = Timer()
     private var timeNumber = 0
     private var timerRunning = false
@@ -21,12 +21,13 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     private let hourRange = Array(0...23)
     private let minuteRange = Array(0...59)
     private let secondRange = Array(0...59)
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         configurePickerView()
+        
     }
-
+    
     private func configurePickerView() {
         pickerView.delegate = self
         pickerView.dataSource = self
@@ -37,7 +38,6 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         if !timerRunning {
             timerRunning = true
             timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(updateTimer), userInfo: nil, repeats: true)
-            stopButton.isEnabled = false
         }
     }
     
@@ -45,7 +45,6 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         if timerRunning {
             timer.invalidate()
             timerRunning = false
-            stopButton.isEnabled = true
         }
     }
     
@@ -54,19 +53,34 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         timerRunning = false
         timeLabel.text = "00:00:00"
         timeNumber = 0
+        
+        pickerView.selectRow(0, inComponent: 0, animated: true)
+        pickerView.selectRow(0, inComponent: 1, animated: true)
+        pickerView.selectRow(0, inComponent: 2, animated: true)
+        
+        let time = convertSecondsToHMS(seconds: timeNumber)
+        let timerString = formatTime(hours: time.0, minutes: time.1, seconds: time.2)
+        timeLabel.text = timerString
     }
     
-    private func secondsToHoursMinutesSeconds(seconds: Int) -> (Int, Int, Int) {
+    private func convertSecondsToHMS(seconds: Int) -> (Int, Int, Int) {
         return ((seconds / 3600), ((seconds % 3600) / 60), ((seconds % 3600) % 60))
     }
     
     private func formatTime(hours: Int, minutes: Int, seconds: Int) -> String {
         return String(format: "%02d:%02d:%02d", hours, minutes, seconds)
     }
- 
+    
     @IBAction func segmentAction(_ sender: Any) {
-        pickerView.isHidden = false
         isStopwatchMode = segmentControl.selectedSegmentIndex == 1
+        
+        if isStopwatchMode {
+            pickerView.isHidden = false
+            image.image = UIImage(systemName: "stopwatch")
+        } else {
+            pickerView.isHidden = true
+            image.image = UIImage(systemName: "timer")
+        }
     }
     
     @IBAction func startAction(_ sender: Any) {
@@ -80,7 +94,7 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     @IBAction func resetAction(_ sender: Any) {
         resetTimer()
     }
-
+    
     @objc private func updateTimer() {
         if isStopwatchMode {
             if timeNumber > 0 {
@@ -92,11 +106,11 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
             timeNumber += 1
         }
         
-        let time = secondsToHoursMinutesSeconds(seconds: timeNumber)
+        let time = convertSecondsToHMS(seconds: timeNumber)
         let timerString = formatTime(hours: time.0, minutes: time.1, seconds: time.2)
         timeLabel.text = timerString
     }
-
+    
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 3
     }
