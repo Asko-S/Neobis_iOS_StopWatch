@@ -47,8 +47,8 @@
                                     <constraint firstAttribute="height" constant="90.329999999999998" id="fnG-nY-ePg"/>
                                 </constraints>
                             </imageView>
-                            <stackView opaque="NO" contentMode="scaleToFill" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="qWa-RJ-l0r">
-                                <rect key="frame" x="89" y="589" width="214" height="58"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="qWa-RJ-l0r">
+                                <rect key="frame" x="60" y="589" width="273" height="58"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hwE-RX-Fib" customClass="PlayStopButtonSize" customModule="Neobis_iOS_StopWatch" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="58" height="58"/>
@@ -61,11 +61,11 @@
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" image="square.fill" catalog="system"/>
                                         <connections>
-                                            <action selector="resetAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="4dS-Wz-mWp"/>
+                                            <action selector="resetAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="eei-vq-Opp"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xcw-9G-DXy" customClass="PlayStopButtonSize" customModule="Neobis_iOS_StopWatch" customModuleProvider="target">
-                                        <rect key="frame" x="78" y="0.0" width="58" height="58"/>
+                                        <rect key="frame" x="107.66666666666666" y="0.0" width="58" height="58"/>
                                         <color key="backgroundColor" systemColor="labelColor"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="58" id="801-gw-Hjq"/>
@@ -75,11 +75,11 @@
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" image="play.fill" catalog="system"/>
                                         <connections>
-                                            <action selector="startAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Pjr-oc-Brb"/>
+                                            <action selector="startAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="zUm-ol-wbX"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5Ge-rm-ykb" customClass="PlayStopButtonSize" customModule="Neobis_iOS_StopWatch" customModuleProvider="target">
-                                        <rect key="frame" x="156" y="0.0" width="58" height="58"/>
+                                        <rect key="frame" x="215" y="0.0" width="58" height="58"/>
                                         <color key="backgroundColor" systemColor="labelColor"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="58" id="gvZ-kT-JSA"/>
@@ -98,19 +98,19 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemYellowColor"/>
                         <constraints>
-                            <constraint firstItem="qWa-RJ-l0r" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="89" id="ASW-X0-rGU"/>
+                            <constraint firstItem="qWa-RJ-l0r" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="60" id="7GV-Y2-PaS"/>
                             <constraint firstItem="9iQ-Md-F43" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="65" id="Anc-TY-37p"/>
                             <constraint firstItem="tzL-SE-Mfa" firstAttribute="top" secondItem="2Ru-5L-wAz" secondAttribute="bottom" constant="61.670000000000002" id="BMR-ZL-Gl6"/>
                             <constraint firstItem="MAZ-bE-ilg" firstAttribute="top" secondItem="9iQ-Md-F43" secondAttribute="bottom" constant="36.670000000000002" id="BNs-Nm-gmu"/>
                             <constraint firstItem="MAZ-bE-ilg" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="Hwm-MN-bZI"/>
                             <constraint firstItem="2Ru-5L-wAz" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="106" id="J7e-vJ-gYq"/>
                             <constraint firstItem="2Ru-5L-wAz" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="19" id="NDw-vR-PV2"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="qWa-RJ-l0r" secondAttribute="trailing" constant="90" id="PYc-1c-xJp"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="tzL-SE-Mfa" secondAttribute="trailing" constant="106" id="QpI-Sk-ztg"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="MAZ-bE-ilg" secondAttribute="trailing" constant="16" id="RKS-Jp-yrW"/>
-                            <constraint firstItem="qWa-RJ-l0r" firstAttribute="top" secondItem="MAZ-bE-ilg" secondAttribute="bottom" constant="8" symbolic="YES" id="RyU-aS-Bxj"/>
-                            <constraint firstItem="qWa-RJ-l0r" firstAttribute="top" secondItem="MAZ-bE-ilg" secondAttribute="bottom" constant="8" symbolic="YES" id="gFn-KB-ofY"/>
+                            <constraint firstItem="qWa-RJ-l0r" firstAttribute="top" secondItem="MAZ-bE-ilg" secondAttribute="bottom" constant="8" symbolic="YES" id="cFW-06-1YC"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="qWa-RJ-l0r" secondAttribute="bottom" constant="171" id="can-IV-jcV"/>
                             <constraint firstItem="MAZ-bE-ilg" firstAttribute="top" secondItem="9iQ-Md-F43" secondAttribute="bottom" constant="36.670000000000002" id="igy-a3-1sP"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="qWa-RJ-l0r" secondAttribute="trailing" constant="60" id="iof-iA-MtR"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="9iQ-Md-F43" secondAttribute="trailing" constant="64" id="jQW-dt-CKf"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="qWa-RJ-l0r" secondAttribute="bottom" constant="171" id="vXW-z7-8dk"/>
                             <constraint firstItem="tzL-SE-Mfa" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="105" id="yPX-OT-Jmt"/>

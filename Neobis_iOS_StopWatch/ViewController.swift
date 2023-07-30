@@ -22,9 +22,21 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     private let minuteRange = Array(0...59)
     private let secondRange = Array(0...59)
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         configurePickerView()
+        let playImage = UIImage(systemName: "play.circle.fill")?.withRenderingMode(.alwaysTemplate).resized(to: CGSize(width: 85, height: 85))
+                playButton.setImage(playImage?.withTintColor(.black, renderingMode: .alwaysOriginal), for: .normal)
+                playButton.imageView?.contentMode = .scaleAspectFit
+                
+                let pauseImage = UIImage(systemName: "pause.circle.fill")?.withRenderingMode(.alwaysTemplate).resized(to: CGSize(width: 85, height: 85))
+                pauseButton.setImage(pauseImage?.withTintColor(.black, renderingMode: .alwaysOriginal), for: .normal)
+                pauseButton.imageView?.contentMode = .scaleAspectFit
+                
+                let stopImage = UIImage(systemName: "stop.circle.fill")?.withRenderingMode(.alwaysTemplate).resized(to: CGSize(width: 85, height: 85))
+                stopButton.setImage(stopImage?.withTintColor(.black, renderingMode: .alwaysOriginal), for: .normal)
+                stopButton.imageView?.contentMode = .scaleAspectFit
         
     }
     
@@ -140,5 +152,15 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         timeNumber = (selectedHours * 3600) + (selectedMinutes * 60) + selectedSeconds
         let timeString = formatTime(hours: selectedHours, minutes: selectedMinutes, seconds: selectedSeconds)
         timeLabel.text = timeString
+    }
+}
+
+extension UIImage {
+    func resized(to newSize: CGSize) -> UIImage? {
+        UIGraphicsBeginImageContextWithOptions(newSize, false, 0.0)
+        self.draw(in: CGRect(x: 0, y: 0, width: newSize.width, height: newSize.height))
+        let newImage = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        return newImage
     }
 }
