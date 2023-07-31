@@ -16,6 +16,7 @@
 		042076312A75641F00F679F1 /* Neobis_iOS_StopWatchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042076302A75641F00F679F1 /* Neobis_iOS_StopWatchTests.swift */; };
 		0420763B2A75641F00F679F1 /* Neobis_iOS_StopWatchUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0420763A2A75641F00F679F1 /* Neobis_iOS_StopWatchUITests.swift */; };
 		0420763D2A75641F00F679F1 /* Neobis_iOS_StopWatchUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0420763C2A75641F00F679F1 /* Neobis_iOS_StopWatchUITestsLaunchTests.swift */; };
+		044D90572A773284000AA96D /* StopWatchAppPic.png in Resources */ = {isa = PBXBuildFile; fileRef = 044D90562A773284000AA96D /* StopWatchAppPic.png */; };
 		045600E92A76BA8B0061F098 /* PlayStopButtonSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045600E82A76BA8B0061F098 /* PlayStopButtonSize.swift */; };
 /* End PBXBuildFile section */
 
@@ -50,6 +51,7 @@
 		042076362A75641F00F679F1 /* Neobis_iOS_StopWatchUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Neobis_iOS_StopWatchUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0420763A2A75641F00F679F1 /* Neobis_iOS_StopWatchUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Neobis_iOS_StopWatchUITests.swift; sourceTree = "<group>"; };
 		0420763C2A75641F00F679F1 /* Neobis_iOS_StopWatchUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Neobis_iOS_StopWatchUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		044D90562A773284000AA96D /* StopWatchAppPic.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = StopWatchAppPic.png; path = ../StopWatchAppPic.png; sourceTree = "<group>"; };
 		045600E82A76BA8B0061F098 /* PlayStopButtonSize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayStopButtonSize.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -81,6 +83,7 @@
 		0420760D2A75641E00F679F1 = {
 			isa = PBXGroup;
 			children = (
+				044D90562A773284000AA96D /* StopWatchAppPic.png */,
 				042076182A75641E00F679F1 /* Neobis_iOS_StopWatch */,
 				0420762F2A75641F00F679F1 /* Neobis_iOS_StopWatchTests */,
 				042076392A75641F00F679F1 /* Neobis_iOS_StopWatchUITests */,
@@ -234,6 +237,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				044D90572A773284000AA96D /* StopWatchAppPic.png in Resources */,
 				042076262A75641F00F679F1 /* LaunchScreen.storyboard in Resources */,
 				042076232A75641F00F679F1 /* Assets.xcassets in Resources */,
 				042076212A75641E00F679F1 /* Main.storyboard in Resources */,
