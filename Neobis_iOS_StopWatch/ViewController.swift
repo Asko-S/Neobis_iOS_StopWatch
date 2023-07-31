@@ -4,15 +4,29 @@
 
 import UIKit
 
+extension UIImage {
+    class func imageWithColor(_ color: UIColor, size: CGSize = CGSize(width: 1, height: 1)) -> UIImage {
+        UIGraphicsBeginImageContext(size)
+        if let context = UIGraphicsGetCurrentContext() {
+            context.setFillColor(color.cgColor)
+            context.fill(CGRect(x: 0, y: 0, width: size.width, height: size.height))
+            let image = UIGraphicsGetImageFromCurrentImageContext()
+            UIGraphicsEndImageContext()
+            return image!
+        }
+        return UIImage()
+    }
+}
+
 class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
     // MARK: - IBOutlets
     @IBOutlet weak var pickerView: UIPickerView!
     @IBOutlet weak var timeLabel: UILabel!
     @IBOutlet weak var image: UIImageView!
     @IBOutlet weak var segmentControl: UISegmentedControl!
-    @IBOutlet weak var playButton: UIButton!
-    @IBOutlet weak var stopButton: UIButton!
-    @IBOutlet weak var pauseButton: UIButton!
+    @IBOutlet weak var playButton: PlayStopButtonSize!
+    @IBOutlet weak var stopButton: PlayStopButtonSize!
+    @IBOutlet weak var pauseButton: PlayStopButtonSize!
     
     private var timer = Timer()
     private var timeNumber = 0
@@ -26,18 +40,51 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     override func viewDidLoad() {
         super.viewDidLoad()
         configurePickerView()
-        let playImage = UIImage(systemName: "play.circle.fill")?.withRenderingMode(.alwaysTemplate).resized(to: CGSize(width: 85, height: 85))
-                playButton.setImage(playImage?.withTintColor(.black, renderingMode: .alwaysOriginal), for: .normal)
-                playButton.imageView?.contentMode = .scaleAspectFit
-                
-                let pauseImage = UIImage(systemName: "pause.circle.fill")?.withRenderingMode(.alwaysTemplate).resized(to: CGSize(width: 85, height: 85))
-                pauseButton.setImage(pauseImage?.withTintColor(.black, renderingMode: .alwaysOriginal), for: .normal)
-                pauseButton.imageView?.contentMode = .scaleAspectFit
-                
-                let stopImage = UIImage(systemName: "stop.circle.fill")?.withRenderingMode(.alwaysTemplate).resized(to: CGSize(width: 85, height: 85))
-                stopButton.setImage(stopImage?.withTintColor(.black, renderingMode: .alwaysOriginal), for: .normal)
-                stopButton.imageView?.contentMode = .scaleAspectFit
+        setupButtonStyles()
+    }
+    
+    private func setupButtonStyles() {
+        let normalBackgroundColor = UIColor.label
+        let highlightedBackgroundColor = UIColor.systemYellow
         
+        let normalTintColor = UIColor.systemYellow
+        let highlightedTintColor = UIColor.label
+        
+        // For stopButton
+        stopButton.backgroundColor = normalBackgroundColor
+        stopButton.tintColor = normalTintColor
+        stopButton.setTitleColor(normalTintColor, for: .normal)
+        
+        stopButton.setBackgroundImage(UIImage.imageWithColor(normalBackgroundColor), for: .normal)
+        stopButton.setBackgroundImage(UIImage.imageWithColor(highlightedBackgroundColor), for: .highlighted)
+        
+        // For pauseButton
+        pauseButton.backgroundColor = normalBackgroundColor
+        pauseButton.tintColor = normalTintColor
+        pauseButton.setTitleColor(normalTintColor, for: .normal)
+        
+        pauseButton.setBackgroundImage(UIImage.imageWithColor(normalBackgroundColor), for: .normal)
+        pauseButton.setBackgroundImage(UIImage.imageWithColor(highlightedBackgroundColor), for: .highlighted)
+        
+        // For resetButton
+        playButton.backgroundColor = normalBackgroundColor
+        playButton.tintColor = normalTintColor
+        playButton.setTitleColor(normalTintColor, for: .normal)
+        
+        playButton.setBackgroundImage(UIImage.imageWithColor(normalBackgroundColor), for: .normal)
+        playButton.setBackgroundImage(UIImage.imageWithColor(highlightedBackgroundColor), for: .highlighted)
+    }
+    
+    @IBAction func stopButtonTouchDown(_ sender: UIButton) {
+        // Change the button color when it's pressed (highlighted)
+        sender.backgroundColor = UIColor.systemYellow
+        sender.tintColor = UIColor.label
+        sender.setTitleColor(UIColor.label, for: .normal)
+    }
+    
+    @IBAction func stopButtonTouchUpInside(_ sender: UIButton) {
+        // Restore the button's original color when it's released
+        setupButtonStyles()
     }
     
     private func configurePickerView() {
@@ -155,12 +202,3 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     }
 }
 
-extension UIImage {
-    func resized(to newSize: CGSize) -> UIImage? {
-        UIGraphicsBeginImageContextWithOptions(newSize, false, 0.0)
-        self.draw(in: CGRect(x: 0, y: 0, width: newSize.width, height: newSize.height))
-        let newImage = UIGraphicsGetImageFromCurrentImageContext()
-        UIGraphicsEndImageContext()
-        return newImage
-    }
-}

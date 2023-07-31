@@ -16,6 +16,7 @@
 		042076312A75641F00F679F1 /* Neobis_iOS_StopWatchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042076302A75641F00F679F1 /* Neobis_iOS_StopWatchTests.swift */; };
 		0420763B2A75641F00F679F1 /* Neobis_iOS_StopWatchUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0420763A2A75641F00F679F1 /* Neobis_iOS_StopWatchUITests.swift */; };
 		0420763D2A75641F00F679F1 /* Neobis_iOS_StopWatchUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0420763C2A75641F00F679F1 /* Neobis_iOS_StopWatchUITestsLaunchTests.swift */; };
+		045600E92A76BA8B0061F098 /* PlayStopButtonSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045600E82A76BA8B0061F098 /* PlayStopButtonSize.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +50,7 @@
 		042076362A75641F00F679F1 /* Neobis_iOS_StopWatchUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Neobis_iOS_StopWatchUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0420763A2A75641F00F679F1 /* Neobis_iOS_StopWatchUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Neobis_iOS_StopWatchUITests.swift; sourceTree = "<group>"; };
 		0420763C2A75641F00F679F1 /* Neobis_iOS_StopWatchUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Neobis_iOS_StopWatchUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		045600E82A76BA8B0061F098 /* PlayStopButtonSize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayStopButtonSize.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +101,7 @@
 		042076182A75641E00F679F1 /* Neobis_iOS_StopWatch */ = {
 			isa = PBXGroup;
 			children = (
+				045600E82A76BA8B0061F098 /* PlayStopButtonSize.swift */,
 				042076192A75641E00F679F1 /* AppDelegate.swift */,
 				0420761B2A75641E00F679F1 /* SceneDelegate.swift */,
 				0420761D2A75641E00F679F1 /* ViewController.swift */,
@@ -260,6 +263,7 @@
 			files = (
 				0420761E2A75641E00F679F1 /* ViewController.swift in Sources */,
 				0420761A2A75641E00F679F1 /* AppDelegate.swift in Sources */,
+				045600E92A76BA8B0061F098 /* PlayStopButtonSize.swift in Sources */,
 				0420761C2A75641E00F679F1 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
